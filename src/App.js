@@ -105,24 +105,24 @@ function App() {
           <div className="col-md-8 themed-grid-col">
             <ChoiceCard title="You" choice={userC} winner={playerResult} imgURL={choices.rock.url} result={playerResult()} />
             <ChoiceButton onplay={onplay} />
-            <h1>{prompt}</h1>
+            <h1 className="gamePrompt">{prompt}</h1>
             <ChoiceCard title="Computer" choice={computerC} winner={CompResult} imgURL={choices.paper.url} result={CompResult()} />
           </div>
           <div className="col-md-4 themed-grid-col">
-            <div className="row">
+            <div className="row nameField">
               <div className="col">
-                <h3 className="enterName">Name:{username} </h3>
+                <h3 className="enterName">Name: {username} </h3>
                 <input id="type-name" placeholder="Type your name here"></input><button onClick={()=>setUsername(document.getElementById("type-name").value)}>Submit</button>
               </div>
             </div>
-            <div className="row">
+            <div className="row gameHistory">
               <div className="col">
-              <h3 className="gameHistory">Game History</h3>
-              <ul>
-                {gameHistory.map(result => {
-                  return <li>{result}</li>;
-                })}
-              </ul>
+                <h3>Game History</h3>
+                <ul>
+                  {gameHistory.map(result => {
+                    return <li>{username}: {result}</li>;
+                  })}
+                </ul>
               </div>
             </div>
           </div>
